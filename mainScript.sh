@@ -33,7 +33,7 @@ vm_ipv4=$(arp -an | grep "$vm_macAddr" | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}')
 scp -o StrictHostKeyChecking=no /home/quentinsirjean/test1/installDep.sh root@$vm_ipv4:/home/
 
 #We the connect to the VM and execute said script 
-ssh -o "StrictHostKeyChecking=no" root@$vm_ipv4 "cd /home/ && ./installDep.sh"
+ssh -o "StrictHostKeyChecking=no" root@$vm_ipv4 "cd /home/ && ./VMInit.sh"
 
 #We open a new gnome terminal directly connected to the VM so that we can execute whatever we need/want
 gnome-terminal -- bash -c "ssh -o "StrictHostKeyChecking=no" root@$vm_ipv4; exec bash"
